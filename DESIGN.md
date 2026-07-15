@@ -74,6 +74,11 @@ hors de ces tokens n'est autorisé dans le code.**
   --radius-input: 14px;
   --radius-chip: 99px;
 
+  /* ===== Élévation — remplace la règle "zéro ombre" de la section 8 ===== */
+  --shadow-card: 0 1px 2px rgba(35,48,63,.04), 0 8px 20px -10px rgba(35,48,63,.10);
+  --shadow-cta: 0 4px 14px -4px rgba(43,75,216,.35);   /* sous le bouton primaire indigo */
+  --shadow-hero: 0 12px 32px -12px rgba(43,75,216,.28); /* sous la carte d'accueil bleue */
+
   /* ===== Espacement ===== */
   --spacing-screen-x: 22px;   /* marge horizontale de chaque écran */
   --spacing-stack: 12px;      /* entre cartes empilées */
@@ -122,8 +127,8 @@ police, aucun autre poids.
 
 | Besoin | Composant | Règle |
 |---|---|---|
-| Boutons | shadcn `button` retokenisé | hauteur ≥ 52px, radius-btn, full-width sur mobile |
-| Cartes | shadcn `card` retokenisé | radius-card, bordure `line` 1.5px, PAS d'ombre portée (bordures, pas d'ombres) |
+| Boutons | shadcn `button` retokenisé | hauteur ≥ 52px, radius-btn, full-width sur mobile ; bouton primaire → `shadow-cta` |
+| Cartes | shadcn `card` retokenisé | radius-card, bordure `line` 1.5px, `shadow-card` (élévation douce, cf. §2) |
 | Paiement / confirmations | **Vaul** (bottom sheet) | tout flux d'argent passe par un drawer bas, jamais un modal centré |
 | Toasts | **Sonner** | confirmations légères uniquement ; les confirmations de PAIEMENT ont leur écran Resi complet |
 | Statuts membres | chip custom | pastille + fond pâle correspondant (`paid-bg` etc.) |
@@ -174,7 +179,10 @@ voir maquette/solid_maquette.html, fonction `buildWonn()`.
 1. Aucun composant Aceternity ni effet "wow" de 21st dans l'app (réservés au
    site vitrine, hors de ce repo).
 2. Aucune couleur hors tokens. Aucun `#hex` en dur dans un composant.
-3. Pas d'ombres portées sur les cartes — la structure vient des bordures.
+3. Aucune ombre hors des tokens `shadow-card` / `shadow-cta` / `shadow-hero`
+   (§2). Ces trois-là remplacent l'ancienne règle "zéro ombre" : élévation
+   douce autorisée, jamais une ombre `#hex` ou une valeur arbitraire en dur
+   dans un composant.
 4. Pas plus d'un bouton primaire (indigo plein) par écran.
 5. Pas de texte sous 0.68rem. Pas de cible tactile sous 52px.
 6. Pas de localStorage/sessionStorage pour des données financières.
