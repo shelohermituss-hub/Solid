@@ -2,6 +2,8 @@ import Link from "next/link"
 import { ShieldCheck } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
 import { formatHTG } from "@/lib/format"
 import { mockDashboard } from "@/lib/mock/dashboard"
@@ -40,30 +42,30 @@ export default function DashboardPage() {
 
       <div className="mt-(--spacing-stack) flex flex-col gap-(--spacing-stack) px-(--spacing-screen-x) pb-(--spacing-stack)">
         <div className="grid grid-cols-3 gap-2">
-          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
+          <Card className="rounded-(--radius-input) py-3 text-center">
             <p className="font-display text-h1 font-extrabold text-ink">
               {stats.activeGroups}
             </p>
             <p className="text-micro font-semibold uppercase tracking-wide text-ink-soft">
               Sòl aktif
             </p>
-          </div>
-          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
+          </Card>
+          <Card className="rounded-(--radius-input) py-3 text-center">
             <p className="font-display text-h1 font-extrabold text-late">
               {stats.lateGroups}
             </p>
             <p className="text-micro font-semibold uppercase tracking-wide text-ink-soft">
               An reta
             </p>
-          </div>
-          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
+          </Card>
+          <Card className="rounded-(--radius-input) py-3 text-center">
             <p className="font-display text-h1 font-extrabold text-soley">
               {stats.potsThisWeek}
             </p>
             <p className="text-micro font-semibold uppercase tracking-wide text-ink-soft">
               Pot semèn sa
             </p>
-          </div>
+          </Card>
         </div>
 
         <p className="text-micro font-bold uppercase tracking-[0.08em] text-ink-soft">
@@ -72,10 +74,10 @@ export default function DashboardPage() {
 
         <div className="flex flex-col gap-(--spacing-stack)">
           {groups.map((group) => (
-            <div
+            <Card
               key={group.id}
               className={cn(
-                "rounded-(--radius-card) border border-line border-l-4 bg-card p-(--spacing-stack) shadow-card",
+                "border-l-4 p-(--spacing-stack)",
                 alertBorderClass[group.alertLevel]
               )}
             >
@@ -99,30 +101,31 @@ export default function DashboardPage() {
               </div>
               {group.hasLateMember && (
                 <div className="mt-3 flex gap-2">
-                  <Link
-                    href="/gwoup"
-                    className="flex h-[52px] flex-1 items-center justify-center rounded-(--radius-btn) border border-line bg-card font-body text-body font-semibold text-ink"
+                  <Button
+                    render={<Link href="/gwoup" />}
+                    variant="outline"
+                    className="h-[52px] flex-1 rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
                   >
                     Gade
-                  </Link>
-                  <Link
-                    href="/rapel"
-                    className="flex h-[52px] flex-1 items-center justify-center rounded-(--radius-btn) bg-late font-body text-body font-semibold text-paper"
+                  </Button>
+                  <Button
+                    render={<Link href="/rapel" />}
+                    className="h-[52px] flex-1 rounded-(--radius-btn) bg-late font-body text-body font-semibold text-paper shadow-none hover:bg-late/90"
                   >
                     Voye rapèl
-                  </Link>
+                  </Button>
                 </div>
               )}
-            </div>
+            </Card>
           ))}
         </div>
 
-        <Link
-          href="/kreye-gwoup"
-          className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
+        <Button
+          render={<Link href="/kreye-gwoup" />}
+          className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
         >
           + Kreye yon nouvo sòl
-        </Link>
+        </Button>
 
         <div className="flex items-center gap-2.5 rounded-(--radius-card) bg-soley-bg p-(--spacing-stack)">
           <ShieldCheck
