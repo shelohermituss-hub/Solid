@@ -1,5 +1,7 @@
 import Link from "next/link"
 
+import { Button } from "@/components/ui/button"
+
 type ScreenStateProps = {
   title: string
   description: string
@@ -22,12 +24,12 @@ export function ScreenState({
     <div className="flex flex-1 flex-col items-center justify-center gap-(--spacing-stack) px-(--spacing-screen-x) text-center">
       <p className="font-display text-h1 font-bold text-ink">{title}</p>
       <p className="text-body text-ink-soft">{description}</p>
-      <Link
-        href={actionHref}
-        className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
+      <Button
+        render={<Link href={actionHref} />}
+        className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
       >
         {actionLabel}
-      </Link>
+      </Button>
     </div>
   )
 }
