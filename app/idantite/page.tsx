@@ -1,17 +1,19 @@
 import Link from "next/link"
 import { Camera, ChevronLeft, Lock } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
+
 export default function IdantitePage() {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
-        <Link
-          href="/enskri"
-          aria-label="Tounen"
-          className="flex h-[52px] w-[52px] items-center justify-center text-ink"
+        <Button
+          render={<Link href="/enskri" aria-label="Tounen" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
         >
           <ChevronLeft className="size-6" aria-hidden="true" />
-        </Link>
+        </Button>
         <h1 className="flex-1 text-center font-display text-body font-bold text-ink">
           Idantite ou
         </h1>
@@ -39,18 +41,19 @@ export default function IdantitePage() {
           </p>
         </div>
 
-        <Link
-          href="/akey"
-          className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
+        <Button
+          render={<Link href="/akey" />}
+          className="mt-(--spacing-stack) h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
         >
           Voye pou verifikasyon
-        </Link>
-        <Link
-          href="/akey"
-          className="mt-2.5 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) border border-line bg-card font-body text-body font-semibold text-ink"
+        </Button>
+        <Button
+          render={<Link href="/akey" />}
+          variant="outline"
+          className="mt-2.5 h-[52px] w-full rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
         >
           M ap fè sa pita
-        </Link>
+        </Button>
       </div>
     </div>
   )
