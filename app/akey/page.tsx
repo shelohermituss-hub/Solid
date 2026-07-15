@@ -23,14 +23,13 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
             {userName}
           </p>
         </div>
-        {/* TODO: lier à l'écran 14 (Notifikasyon) quand il sera codé */}
-        <button
-          type="button"
+        <Link
+          href="/notifikasyon"
           aria-label="Notifikasyon"
           className="flex size-[52px] items-center justify-center rounded-full text-ink"
         >
           <Bell className="size-6" aria-hidden="true" />
-        </button>
+        </Link>
       </div>
 
       {state === "error" ? (
