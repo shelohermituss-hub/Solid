@@ -4,6 +4,7 @@ import * as React from "react"
 import { useRouter } from "next/navigation"
 import { toast } from "sonner"
 
+import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { mockRapel } from "@/lib/mock/rapel"
 
@@ -29,33 +30,36 @@ export function RapelMessages() {
         {templates.map((template) => {
           const selected = template.id === selectedId
           return (
-            <button
+            <Button
               key={template.id}
               type="button"
+              variant="outline"
               onClick={() => setSelectedId(template.id)}
               className={cn(
-                "rounded-(--radius-card) border p-(--spacing-stack) text-left shadow-card",
+                "h-auto flex-col items-start gap-0 rounded-(--radius-card) p-(--spacing-stack) text-left whitespace-normal",
                 selected
                   ? "border-primary bg-primary-bg"
-                  : "border-line bg-card"
+                  : "bg-card"
               )}
             >
-              <p className="text-body leading-relaxed text-ink">
+              <p className="text-body leading-relaxed font-normal text-ink">
                 {template.message}
               </p>
-              <p className="mt-2 text-micro text-ink-soft">{template.tone}</p>
-            </button>
+              <p className="mt-2 text-micro font-normal text-ink-soft">
+                {template.tone}
+              </p>
+            </Button>
           )
         })}
       </div>
 
-      <button
+      <Button
         type="button"
         onClick={handleSend}
-        className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
+        className="mt-(--spacing-stack) h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
       >
         Voye rapèl la (SMS + notifikasyon)
-      </button>
+      </Button>
       <p className="mt-3 text-center text-micro text-ink-soft">
         Rapèl otomatik yo deja pati : J-3, J-1, jou J. Sa a se rapèl pèsonèl
         ou.

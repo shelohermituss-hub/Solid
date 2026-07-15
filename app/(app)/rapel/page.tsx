@@ -1,6 +1,9 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { RapelMessages } from "@/components/RapelMessages"
 import { formatHTG } from "@/lib/format"
 import { mockRapel } from "@/lib/mock/rapel"
@@ -11,13 +14,13 @@ export default function RapelPage() {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
-        <Link
-          href="/dashboard"
-          aria-label="Tounen"
-          className="flex h-[52px] w-[52px] items-center justify-center text-ink"
+        <Button
+          render={<Link href="/dashboard" aria-label="Tounen" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
         >
           <ChevronLeft className="size-6" aria-hidden="true" />
-        </Link>
+        </Button>
         <h1 className="flex-1 text-center font-display text-body font-bold text-ink">
           Voye rapèl
         </h1>
@@ -25,10 +28,12 @@ export default function RapelPage() {
       </div>
 
       <div className="flex-1 px-(--spacing-screen-x) py-(--spacing-stack)">
-        <div className="flex items-center gap-3 rounded-(--radius-card) border border-line bg-card p-(--spacing-stack) shadow-card">
-          <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-micro font-bold text-primary-foreground">
-            {member.initials}
-          </span>
+        <Card className="flex-row items-center gap-3 p-(--spacing-stack)">
+          <Avatar className="size-11">
+            <AvatarFallback className="bg-primary text-micro font-bold text-primary-foreground">
+              {member.initials}
+            </AvatarFallback>
+          </Avatar>
           <div className="flex-1">
             <p className="text-body font-bold text-ink">{member.name}</p>
             <p className="text-micro text-ink-soft">
@@ -40,7 +45,7 @@ export default function RapelPage() {
             aria-hidden="true"
             className="size-2.5 shrink-0 rounded-full bg-late"
           />
-        </div>
+        </Card>
 
         <div className="mt-(--spacing-stack)">
           <RapelMessages />
