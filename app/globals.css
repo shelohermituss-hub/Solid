@@ -94,3 +94,15 @@
     @apply bg-background text-foreground font-sans;
   }
 }
+
+/* Seule animation "moment" autorisée par DESIGN.md §7 : la coche du reçu. */
+@keyframes pop {
+  from {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

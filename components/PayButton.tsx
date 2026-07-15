@@ -1,7 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { Check, Loader2 } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { Loader2 } from "lucide-react"
 
 import {
   Drawer,
@@ -15,7 +16,7 @@ import {
 } from "@/components/ui/drawer"
 import { formatHTG } from "@/lib/format"
 
-type PaymentState = "confirm" | "processing" | "success" | "error"
+type PaymentState = "confirm" | "processing" | "error"
 
 type PayButtonProps = {
   solName: string
@@ -55,6 +56,7 @@ export function PayButton({
   amount,
   forcedOutcome,
 }: PayButtonProps) {
+  const router = useRouter()
   const [open, setOpen] = React.useState(false)
   const [state, setState] = React.useState<PaymentState>("confirm")
 
@@ -68,6 +70,13 @@ export function PayButton({
   async function handleConfirm() {
     setState("processing")
     const outcome = await simulateMonCashPayment(forcedOutcome)
+    if (outcome === "success") {
+      // L'écran Resi complet est le seul endroit pour la coche animée
+      // (DESIGN.md §7 : une seule animation "moment" dans toute l'app).
+      setOpen(false)
+      router.push("/resi")
+      return
+    }
     setState(outcome)
   }
 
@@ -88,7 +97,7 @@ export function PayButton({
             <div className="px-(--spacing-screen-x) py-(--spacing-stack)">
               <p className="text-center font-display text-amount font-extrabold text-ink">
                 {formatHTG(amount)}
-                <span className="ml-1 font-body text-small font-normal text-ink-soft">
+                <span className="ml-1 font-body text-body font-normal text-ink-soft">
                   HTG
                 </span>
               </p>
@@ -117,27 +126,6 @@ export function PayButton({
               N ap konekte ak MonCash…
             </p>
           </div>
-        )}
-
-        {state === "success" && (
-          <>
-            <div className="flex flex-col items-center gap-3 px-(--spacing-screen-x) pt-6">
-              <span className="flex size-12 items-center justify-center rounded-full bg-paid-bg">
-                <Check className="size-6 text-paid" aria-hidden="true" />
-              </span>
-              <p className="text-center font-display text-h2 font-bold text-ink">
-                Kotizasyon w antre !
-              </p>
-              <p className="text-center text-body text-ink-soft">
-                Mèsi — peman {formatHTG(amount)} HTG konfime pou {solName}.
-              </p>
-            </div>
-            <DrawerFooter>
-              <DrawerClose className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep">
-                Tounen akèy
-              </DrawerClose>
-            </DrawerFooter>
-          </>
         )}
 
         {state === "error" && (
