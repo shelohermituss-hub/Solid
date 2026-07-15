@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { ScreenState } from "@/components/ScreenState"
 import { cn } from "@/lib/utils"
 import { mockChemenSik } from "@/lib/mock/chemenSik"
@@ -18,13 +20,13 @@ export default async function ChemenSikPage({
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
-        <Link
-          href="/gwoup"
-          aria-label="Tounen"
-          className="flex h-[52px] w-[52px] items-center justify-center text-ink"
+        <Button
+          render={<Link href="/gwoup" aria-label="Tounen" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
         >
           <ChevronLeft className="size-6" aria-hidden="true" />
-        </Link>
+        </Button>
         <h1 className="flex-1 text-center font-display text-body font-bold text-ink">
           Chemen sik la
         </h1>
@@ -73,16 +75,16 @@ export default async function ChemenSikPage({
                 >
                   {step.state === "done" ? "✓" : step.position}
                 </span>
-                <div
+                <Card
                   className={cn(
-                    "rounded-(--radius-input) border border-line bg-card px-3.5 py-3 shadow-card",
+                    "rounded-(--radius-input) px-3.5 py-3",
                     step.state === "now" && "border-soley bg-soley-bg",
                     step.isCurrentUser && "border-primary bg-primary-bg"
                   )}
                 >
                   <p className="text-body font-bold text-ink">{step.name}</p>
                   <p className="text-micro text-ink-soft">{step.when}</p>
-                </div>
+                </Card>
               </div>
             ))}
           </div>
