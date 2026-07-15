@@ -8,6 +8,8 @@ export type DashboardGroup = {
   alertLevel: GroupAlertLevel
   alertLabel: string
   hasLateMember?: boolean
+  needsBeneficiaryConfirmation?: boolean
+  hasPayoutIssue?: boolean
 }
 
 export const mockDashboard = {
@@ -42,6 +44,24 @@ export const mockDashboard = {
       potAmount: 30000,
       alertLevel: "paid",
       alertLabel: "tout peye ✓",
+    },
+    {
+      id: "fanmi-konfimasyon",
+      name: "Sòl Fanmi an",
+      cycle: { current: 5, total: 10 },
+      potAmount: 45000,
+      alertLevel: "wait",
+      alertLabel: "konfime nimewo",
+      needsBeneficiaryConfirmation: true,
+    },
+    {
+      id: "kwafe-vesman",
+      name: "Sòl Machann Kwafè",
+      cycle: { current: 8, total: 10 },
+      potAmount: 90000,
+      alertLevel: "late",
+      alertLabel: "vèsman echwe",
+      hasPayoutIssue: true,
     },
   ] satisfies DashboardGroup[],
 }

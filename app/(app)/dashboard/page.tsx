@@ -116,6 +116,22 @@ export default function DashboardPage() {
                   </Button>
                 </div>
               )}
+              {group.needsBeneficiaryConfirmation && (
+                <Button
+                  render={<Link href="/konfime-nimewo-benefisye" />}
+                  className="mt-3 h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
+                >
+                  Konfime nimewo benefisyè a
+                </Button>
+              )}
+              {group.hasPayoutIssue && (
+                <Button
+                  render={<Link href="/vesman-echwe" />}
+                  className="mt-3 h-[52px] w-full rounded-(--radius-btn) bg-late font-body text-body font-semibold text-paper shadow-none hover:bg-late/90"
+                >
+                  Rezoud vèsman echwe a
+                </Button>
+              )}
             </Card>
           ))}
         </div>
