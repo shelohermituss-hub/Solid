@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Public_Sans } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -29,7 +30,10 @@ export default function RootLayout({
       lang="ht"
       className={`${bricolageGrotesque.variable} ${publicSans.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }
