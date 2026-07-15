@@ -1,9 +1,9 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { MemberAvatar } from "@/components/MemberAvatar"
 import { RapelMessages } from "@/components/RapelMessages"
 import { formatHTG } from "@/lib/format"
 import { mockRapel } from "@/lib/mock/rapel"
@@ -29,11 +29,12 @@ export default function RapelPage() {
 
       <div className="flex-1 px-(--spacing-screen-x) py-(--spacing-stack)">
         <Card className="flex-row items-center gap-3 p-(--spacing-stack)">
-          <Avatar className="size-11">
-            <AvatarFallback className="bg-primary text-micro font-bold text-primary-foreground">
-              {member.initials}
-            </AvatarFallback>
-          </Avatar>
+          <MemberAvatar
+            name={member.name}
+            initials={member.initials}
+            className="size-11"
+            fallbackClassName="text-micro"
+          />
           <div className="flex-1">
             <p className="text-body font-bold text-ink">{member.name}</p>
             <p className="text-micro text-ink-soft">

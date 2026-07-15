@@ -1,10 +1,10 @@
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
+import { MemberAvatar } from "@/components/MemberAvatar"
 import { ScreenState } from "@/components/ScreenState"
 import { Wonn } from "@/components/Wonn"
 import { cn } from "@/lib/utils"
@@ -118,11 +118,12 @@ export default async function GwoupPage({ searchParams }: GwoupPageProps) {
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <Avatar className="size-9">
-                    <AvatarFallback className="bg-primary text-micro font-bold text-primary-foreground">
-                      {member.initials}
-                    </AvatarFallback>
-                  </Avatar>
+                  <MemberAvatar
+                    name={member.name}
+                    initials={member.initials}
+                    className="size-9"
+                    fallbackClassName="text-micro"
+                  />
                   <div>
                     <p className="text-body font-bold text-ink">
                       {member.name}
