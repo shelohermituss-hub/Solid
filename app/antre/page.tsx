@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+import { Button } from "@/components/ui/button"
 import { formatHTG } from "@/lib/format"
 import { mockAntre } from "@/lib/mock/antre"
 
@@ -35,12 +36,13 @@ export default function AntrePage() {
         <span className="h-2 w-2 rounded-(--radius-chip) bg-primary-foreground/30" />
       </div>
 
-      <Link
-        href="/enskri"
-        className="mt-6 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-soley font-body text-body font-semibold text-soley-ink"
+      <Button
+        render={<Link href="/enskri" />}
+        variant="ghost"
+        className="mt-6 h-[52px] w-full rounded-(--radius-btn) bg-soley font-body text-body font-semibold text-soley-ink hover:bg-soley/90"
       >
         Kòmanse
-      </Link>
+      </Button>
       {/* TODO: lier à l'écran de connexion quand il sera codé */}
       <p className="mt-3.5 text-center text-micro text-primary-foreground/70">
         Ou gen yon kont deja ?{" "}
