@@ -56,6 +56,17 @@ hors de ces tokens n'est autorisé dans le code.**
   --color-primary-bg: #EEF2FE;
   --color-soley-bg: #FEF7E6;
 
+  /* Identité avatar — décoratif UNIQUEMENT, jamais de sens de statut ou
+     d'action (voir §3). Sert à distinguer visuellement les membres d'une
+     liste ; couleur choisie par hash déterministe du nom, pas par l'auteur
+     du composant. */
+  --color-avatar-1: #4F6B8C; /* bleu ardoise */
+  --color-avatar-2: #7A5296; /* prune */
+  --color-avatar-3: #A15A38; /* terracotta */
+  --color-avatar-4: #347A72; /* sarcelle */
+  --color-avatar-5: #96496A; /* mauve */
+  --color-avatar-6: #5C6470; /* gris ardoise */
+
   /* ===== Typographie ===== */
   --font-display: "Bricolage Grotesque", sans-serif;  /* titres, montants */
   --font-body: "Public Sans", sans-serif;             /* tout le reste */
@@ -110,6 +121,12 @@ police, aucun autre poids.
   bloc de paiement. Notre produit n'est pas rouge.
 - Fond d'app : toujours `paper`, jamais blanc pur. Les cartes sont blanches
   sur paper — c'est ce contraste doux qui structure les écrans.
+- **`avatar-1` à `avatar-6` sont une identité décorative, jamais un statut.**
+  Réservés au fond des avatars à initiales dans les listes de membres, pour
+  les distinguer visuellement les uns des autres. La couleur d'un membre est
+  dérivée par hash déterministe de son nom (même nom → même couleur à chaque
+  rendu), jamais choisie à la main ni liée à un rôle/statut. Texte toujours
+  blanc dessus (contraste vérifié ≥ 4.5:1 sur les 6 teintes).
 
 ## 4. Typographie — règles d'usage
 

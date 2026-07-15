@@ -26,6 +26,14 @@
   --color-primary-bg: #EEF2FE;
   --color-soley-bg: #FEF7E6;
 
+  /* Identité avatar — décoratif uniquement, jamais un statut (DESIGN.md §3) */
+  --color-avatar-1: #4F6B8C; /* bleu ardoise */
+  --color-avatar-2: #7A5296; /* prune */
+  --color-avatar-3: #A15A38; /* terracotta */
+  --color-avatar-4: #347A72; /* sarcelle */
+  --color-avatar-5: #96496A; /* mauve */
+  --color-avatar-6: #5C6470; /* gris ardoise */
+
   /* ===== Typographie ===== */
   --font-display: "Bricolage Grotesque", sans-serif;  /* titres, montants */
   --font-body: "Public Sans", sans-serif;             /* tout le reste */
