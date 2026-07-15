@@ -46,7 +46,7 @@ export function KreyeGwoupForm() {
     toast.success("Envitasyon yo voye", {
       description: `${members.length} manm envite pou ${name}.`,
     })
-    router.push("/dashboard")
+    router.push("/gwoup-ap-fome")
   }
 
   return (
