@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Public_Sans } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { LocaleProvider } from "@/lib/i18n/LocaleContext";
 import "./globals.css";
 
 const bricolageGrotesque = Bricolage_Grotesque({
@@ -31,8 +32,10 @@ export default function RootLayout({
       className={`${bricolageGrotesque.variable} ${publicSans.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
-        <Toaster />
+        <LocaleProvider>
+          {children}
+          <Toaster />
+        </LocaleProvider>
       </body>
     </html>
   );
