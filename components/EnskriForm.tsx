@@ -3,6 +3,7 @@
 import * as React from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 
+import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
 const OTP_LENGTH = 4
@@ -98,9 +99,9 @@ export function EnskriForm() {
       </label>
       <div className="mt-1.5 flex justify-center gap-2.5">
         {digits.map((digit, index) => (
-          <input
+          <Input
             key={index}
-            ref={(el) => {
+            ref={(el: HTMLInputElement | null) => {
               inputsRef.current[index] = el
             }}
             type="text"
@@ -110,19 +111,19 @@ export function EnskriForm() {
             onChange={(e) => handleDigitChange(index, e.target.value)}
             onKeyDown={(e) => handleDigitKeyDown(index, e)}
             aria-label={`Chif ${index + 1} nan kòd la`}
-            className="h-[60px] w-[52px] rounded-(--radius-input) border border-line text-center font-display text-h1 font-extrabold text-ink"
+            className="h-[60px] w-[52px] rounded-(--radius-input) border-line text-center font-display text-h1 font-extrabold text-ink"
           />
         ))}
       </div>
 
-      <button
+      <Button
         type="button"
         onClick={handleSubmit}
         disabled={!canSubmit}
-        className="mt-6 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta disabled:opacity-40 active:bg-primary-deep"
+        className="mt-6 h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold disabled:opacity-40"
       >
         {status === "checking" ? "N ap verifye…" : "Kontinye"}
-      </button>
+      </Button>
       <p className="mt-3.5 text-center text-micro text-ink-soft">
         Nou pap janm pataje nimewo ou.
       </p>

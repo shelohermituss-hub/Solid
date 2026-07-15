@@ -2,19 +2,20 @@ import Link from "next/link"
 import { Suspense } from "react"
 import { ChevronLeft } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
 import { EnskriForm } from "@/components/EnskriForm"
 
 export default function EnskriPage() {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
-        <Link
-          href="/antre"
-          aria-label="Tounen"
-          className="flex h-[52px] w-[52px] items-center justify-center text-ink"
+        <Button
+          render={<Link href="/antre" aria-label="Tounen" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
         >
           <ChevronLeft className="size-6" aria-hidden="true" />
-        </Link>
+        </Button>
         <h1 className="flex-1 text-center font-display text-body font-bold text-ink">
           Enskri
         </h1>
