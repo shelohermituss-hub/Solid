@@ -40,7 +40,7 @@ export default function DashboardPage() {
 
       <div className="mt-(--spacing-stack) flex flex-col gap-(--spacing-stack) px-(--spacing-screen-x) pb-(--spacing-stack)">
         <div className="grid grid-cols-3 gap-2">
-          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center">
+          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
             <p className="font-display text-h1 font-extrabold text-ink">
               {stats.activeGroups}
             </p>
@@ -48,7 +48,7 @@ export default function DashboardPage() {
               Sòl aktif
             </p>
           </div>
-          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center">
+          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
             <p className="font-display text-h1 font-extrabold text-late">
               {stats.lateGroups}
             </p>
@@ -56,7 +56,7 @@ export default function DashboardPage() {
               An reta
             </p>
           </div>
-          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center">
+          <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
             <p className="font-display text-h1 font-extrabold text-soley">
               {stats.potsThisWeek}
             </p>
@@ -75,7 +75,7 @@ export default function DashboardPage() {
             <div
               key={group.id}
               className={cn(
-                "rounded-(--radius-card) border border-line border-l-4 bg-card p-(--spacing-stack)",
+                "rounded-(--radius-card) border border-line border-l-4 bg-card p-(--spacing-stack) shadow-card",
                 alertBorderClass[group.alertLevel]
               )}
             >
@@ -119,7 +119,7 @@ export default function DashboardPage() {
 
         <Link
           href="/kreye-gwoup"
-          className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep"
+          className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
         >
           + Kreye yon nouvo sòl
         </Link>

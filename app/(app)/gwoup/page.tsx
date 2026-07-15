@@ -104,7 +104,7 @@ export default async function GwoupPage({ searchParams }: GwoupPageProps) {
           <p className="mt-(--spacing-stack) text-micro font-bold uppercase tracking-[0.08em] text-ink-soft">
             Manm yo — {monthShort}
           </p>
-          <div className="rounded-(--radius-card) border border-line bg-card">
+          <div className="rounded-(--radius-card) border border-line bg-card shadow-card">
             {featuredMembers.map((member, index) => (
               <div
                 key={member.position}

@@ -24,7 +24,7 @@ export default function IdantitePage() {
           ap bezwen l anvan ou resevwa yon pot.
         </p>
 
-        <div className="flex flex-col items-center gap-2 rounded-(--radius-card) border border-dashed border-line bg-card px-4 py-10 text-center">
+        <div className="flex flex-col items-center gap-2 rounded-(--radius-card) border border-dashed border-line bg-card px-4 py-10 text-center shadow-card">
           <Camera className="size-9 text-ink-soft" aria-hidden="true" />
           <p className="text-body font-bold text-ink">Pran foto pyès la</p>
           <p className="text-micro text-ink-soft">
@@ -41,7 +41,7 @@ export default function IdantitePage() {
 
         <Link
           href="/akey"
-          className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep"
+          className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
         >
           Voye pou verifikasyon
         </Link>

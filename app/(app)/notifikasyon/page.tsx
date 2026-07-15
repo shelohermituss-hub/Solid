@@ -77,7 +77,7 @@ export default async function NotifikasyonPage({
               <div
                 key={item.id}
                 className={cn(
-                  "rounded-(--radius-card) border border-line border-l-4 bg-card p-(--spacing-stack)",
+                  "rounded-(--radius-card) border border-line border-l-4 bg-card p-(--spacing-stack) shadow-card",
                   accentBorderClass[item.accent]
                 )}
               >

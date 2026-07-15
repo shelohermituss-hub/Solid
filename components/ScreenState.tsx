@@ -24,7 +24,7 @@ export function ScreenState({
       <p className="text-body text-ink-soft">{description}</p>
       <Link
         href={actionHref}
-        className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep"
+        className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
       >
         {actionLabel}
       </Link>

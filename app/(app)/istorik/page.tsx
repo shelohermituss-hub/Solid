@@ -51,7 +51,7 @@ export default async function IstorikPage({ searchParams }: IstorikPageProps) {
               <p className="mb-2 text-micro font-bold uppercase tracking-[0.08em] text-ink-soft">
                 {group.monthLabel}
               </p>
-              <div className="rounded-(--radius-card) border border-line bg-card px-(--spacing-stack)">
+              <div className="rounded-(--radius-card) border border-line bg-card px-(--spacing-stack) shadow-card">
                 {group.transactions.map((tx, index) => (
                   <div
                     key={tx.reference}

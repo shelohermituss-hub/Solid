@@ -54,7 +54,7 @@ export default async function PeyePage({ searchParams }: PeyePageProps) {
         </p>
 
         {moncashConnected ? (
-          <div className="mt-(--spacing-stack) flex items-center gap-3 rounded-(--radius-card) border border-line bg-card p-4">
+          <div className="mt-(--spacing-stack) flex items-center gap-3 rounded-(--radius-card) border border-line bg-card p-4 shadow-card">
             <div className="flex size-11 items-center justify-center rounded-(--radius-input) bg-ink text-body font-bold text-paper">
               MC
             </div>
@@ -70,7 +70,7 @@ export default async function PeyePage({ searchParams }: PeyePageProps) {
             </Badge>
           </div>
         ) : (
-          <div className="mt-(--spacing-stack) rounded-(--radius-card) border border-line bg-card p-4 text-center">
+          <div className="mt-(--spacing-stack) rounded-(--radius-card) border border-line bg-card p-4 text-center shadow-card">
             <p className="text-body font-semibold text-ink">
               MonCash pa konekte
             </p>
@@ -89,7 +89,7 @@ export default async function PeyePage({ searchParams }: PeyePageProps) {
               forcedOutcome={forcedOutcome}
             />
           ) : (
-            <button className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep">
+            <button className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep">
               Konekte MonCash
             </button>
           )}

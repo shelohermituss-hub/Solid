@@ -75,7 +75,7 @@ export default async function ChemenSikPage({
                 </span>
                 <div
                   className={cn(
-                    "rounded-(--radius-input) border border-line bg-card px-3.5 py-3",
+                    "rounded-(--radius-input) border border-line bg-card px-3.5 py-3 shadow-card",
                     step.state === "now" && "border-soley bg-soley-bg",
                     step.isCurrentUser && "border-primary bg-primary-bg"
                   )}

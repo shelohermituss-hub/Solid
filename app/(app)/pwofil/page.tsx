@@ -87,7 +87,7 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
           </div>
 
           <div className="mt-(--spacing-stack) grid grid-cols-3 gap-2">
-            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center">
+            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
               <p className="font-display text-h1 font-extrabold text-ink">
                 {stats.cyclesCompleted}
               </p>
@@ -95,7 +95,7 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
                 Sik konplete
               </p>
             </div>
-            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center">
+            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
               <p className="font-display text-h1 font-extrabold text-ink">
                 {stats.onTimePayments}
               </p>
@@ -103,7 +103,7 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
                 Peman alè
               </p>
             </div>
-            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center">
+            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
               <div className="flex items-center justify-center gap-1">
                 <p className="font-display text-h1 font-extrabold text-soley">
                   {stats.streak}
@@ -116,7 +116,7 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
             </div>
           </div>
 
-          <div className="mt-(--spacing-stack) rounded-(--radius-card) border border-line bg-card p-(--spacing-stack)">
+          <div className="mt-(--spacing-stack) rounded-(--radius-card) border border-line bg-card p-(--spacing-stack) shadow-card">
             <p className="text-body font-bold text-ink">
               Kijan pou monte skò w
             </p>

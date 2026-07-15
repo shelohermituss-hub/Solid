@@ -34,7 +34,7 @@ export function RapelMessages() {
               type="button"
               onClick={() => setSelectedId(template.id)}
               className={cn(
-                "rounded-(--radius-card) border p-(--spacing-stack) text-left",
+                "rounded-(--radius-card) border p-(--spacing-stack) text-left shadow-card",
                 selected
                   ? "border-primary bg-primary-bg"
                   : "border-line bg-card"
@@ -52,7 +52,7 @@ export function RapelMessages() {
       <button
         type="button"
         onClick={handleSend}
-        className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep"
+        className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
       >
         Voye rapèl la (SMS + notifikasyon)
       </button>

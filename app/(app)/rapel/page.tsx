@@ -25,7 +25,7 @@ export default function RapelPage() {
       </div>
 
       <div className="flex-1 px-(--spacing-screen-x) py-(--spacing-stack)">
-        <div className="flex items-center gap-3 rounded-(--radius-card) border border-line bg-card p-(--spacing-stack)">
+        <div className="flex items-center gap-3 rounded-(--radius-card) border border-line bg-card p-(--spacing-stack) shadow-card">
           <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary text-micro font-bold text-primary-foreground">
             {member.initials}
           </span>

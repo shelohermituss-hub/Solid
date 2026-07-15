@@ -119,7 +119,7 @@ export function EnskriForm() {
         type="button"
         onClick={handleSubmit}
         disabled={!canSubmit}
-        className="mt-6 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground disabled:opacity-40 active:bg-primary-deep"
+        className="mt-6 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta disabled:opacity-40 active:bg-primary-deep"
       >
         {status === "checking" ? "N ap verifye…" : "Kontinye"}
       </button>

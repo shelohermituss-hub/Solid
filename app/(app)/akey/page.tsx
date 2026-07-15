@@ -48,7 +48,7 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
         />
       ) : (
         <div className="mt-(--spacing-stack) flex flex-col gap-(--spacing-stack) px-(--spacing-screen-x)">
-          <div className="rounded-(--radius-card) bg-primary p-(--spacing-stack)">
+          <div className="rounded-(--radius-card) bg-primary p-(--spacing-stack) shadow-hero">
             <div className="flex items-center justify-between">
               <Badge
                 variant="outline"
@@ -84,7 +84,7 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
 
           <Link
             href="/gwoup"
-            className="block rounded-(--radius-card) border border-line bg-card p-(--spacing-stack)"
+            className="block rounded-(--radius-card) border border-line bg-card p-(--spacing-stack) shadow-card"
           >
             <div className="flex items-center justify-between">
               <div>
@@ -114,7 +114,7 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
             </div>
           </Link>
 
-          <div className="rounded-(--radius-card) border border-dashed border-line bg-card p-(--spacing-stack) text-center">
+          <div className="rounded-(--radius-card) border border-dashed border-line bg-card p-(--spacing-stack) text-center shadow-card">
             <p className="text-body font-bold text-ink">
               Ou vle yon lòt sòl ?
             </p>

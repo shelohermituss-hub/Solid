@@ -172,7 +172,7 @@ export function KreyeGwoupForm() {
       <button
         type="button"
         onClick={handleSendInvitations}
-        className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep"
+        className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
       >
         Voye envitasyon yo
       </button>
