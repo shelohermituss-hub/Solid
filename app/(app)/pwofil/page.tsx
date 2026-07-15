@@ -2,6 +2,8 @@ import { ChevronRight, Flame, Medal, Target } from "lucide-react"
 import Link from "next/link"
 
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { ScreenState } from "@/components/ScreenState"
 import { mockPwofil } from "@/lib/mock/pwofil"
 
@@ -87,23 +89,23 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
           </div>
 
           <div className="mt-(--spacing-stack) grid grid-cols-3 gap-2">
-            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
+            <Card className="rounded-(--radius-input) py-3 text-center">
               <p className="font-display text-h1 font-extrabold text-ink">
                 {stats.cyclesCompleted}
               </p>
               <p className="text-micro font-semibold uppercase tracking-wide text-ink-soft">
                 Sik konplete
               </p>
-            </div>
-            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
+            </Card>
+            <Card className="rounded-(--radius-input) py-3 text-center">
               <p className="font-display text-h1 font-extrabold text-ink">
                 {stats.onTimePayments}
               </p>
               <p className="text-micro font-semibold uppercase tracking-wide text-ink-soft">
                 Peman alè
               </p>
-            </div>
-            <div className="rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card">
+            </Card>
+            <Card className="rounded-(--radius-input) py-3 text-center">
               <div className="flex items-center justify-center gap-1">
                 <p className="font-display text-h1 font-extrabold text-soley">
                   {stats.streak}
@@ -113,10 +115,10 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
               <p className="text-micro font-semibold uppercase tracking-wide text-ink-soft">
                 Seri alè
               </p>
-            </div>
+            </Card>
           </div>
 
-          <div className="mt-(--spacing-stack) rounded-(--radius-card) border border-line bg-card p-(--spacing-stack) shadow-card">
+          <Card className="mt-(--spacing-stack) p-(--spacing-stack)">
             <p className="text-body font-bold text-ink">
               Kijan pou monte skò w
             </p>
@@ -128,7 +130,7 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
                 </li>
               ))}
             </ul>
-          </div>
+          </Card>
 
           <div className="mt-(--spacing-stack) flex items-start gap-2.5 rounded-(--radius-card) bg-soley-bg p-(--spacing-stack)">
             <Target
@@ -145,13 +147,14 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
             </div>
           </div>
 
-          <Link
-            href="/istorik"
-            className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center gap-1.5 rounded-(--radius-btn) border border-line bg-card font-body text-body font-semibold text-ink"
+          <Button
+            render={<Link href="/istorik" />}
+            variant="outline"
+            className="mt-(--spacing-stack) h-[52px] w-full gap-1.5 rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
           >
             Istorik tranzaksyon yo
             <ChevronRight className="size-4" aria-hidden="true" />
-          </Link>
+          </Button>
         </div>
       )}
     </div>
