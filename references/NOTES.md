@@ -4,21 +4,25 @@
 > On copie la hiérarchie, les patterns, les flows. JAMAIS les couleurs,
 > typographies ou identités visuelles. En cas de conflit : DESIGN.md gagne.
 
-## À remplir via le MCP Refero (première tâche dédiée)
+## Rempli via le MCP Refero
 
-Tâche suggérée pour Claude Code :
-"Connecte-toi au MCP Refero. Pour chaque app ci-dessous, récupère les écrans
-listés, extrais les patterns structurels et rédige le fichier .md correspondant
-dans references/ (structure, hiérarchie, composants — pas de tokens visuels)."
+Statut réel après recherche dans Refero : **seul Duolingo est indexé tel
+quel**. Wave, Cash App, Splitwise, PiggyVest et le dashboard mobile Stripe
+sont absents de la base (recherches ciblées confirmées, zéro résultat pour
+ces apps précises) — chaque fichier concerné utilise un proxy structurel
+réel trouvé dans Refero, explicitement noté en tête de fichier avec les URLs
+sources. Aucune couleur/typo de ces proxys n'a été copiée.
 
-| Fichier à créer | App | Écrans à chercher | Ce qu'on copie |
+| Fichier | App visée | Statut | Source réelle utilisée |
 |---|---|---|---|
-| wave-home.md | Wave | home, send money | hiérarchie une-carte-un-bouton, inscription numéro+OTP |
-| cashapp-payment.md | Cash App | payment, confirmation | montant géant, un bouton, écran de reçu |
-| splitwise-group.md | Splitwise | group detail, add group | liste membres à statuts, création de groupe |
-| piggyvest-savings.md | PiggyVest | savings plan card | langage positif de l'épargne, cartes de plans |
-| duolingo-path.md | Duolingo | learning path, streaks | chemin de progression, streaks/score |
-| stripe-dashboard.md | Stripe (mobile) | dashboard | 3 stats + liste d'alertes couleur |
+| [x] wave-home.md | Wave | proxy | PayPal (home, login) — OTP signup non trouvé, à valider manuellement |
+| [x] cashapp-payment.md | Cash App | proxy | PayPal (montant) + Omio (confirmation) |
+| [x] splitwise-group.md | Splitwise | proxy | PayPal Pools (cagnotte partagée, limite notée) |
+| [x] piggyvest-savings.md | PiggyVest | proxy | Wise "Jar" (tirelire nommée) |
+| [x] duolingo-path.md | Duolingo | **réel** | Duolingo (App ID 5), écrans authentiques |
+| [x] stripe-dashboard.md | Stripe (mobile) | proxy | Linktree Analytics + Revolut (dashboard patrimoine) |
+
+Ce qu'on copie / ne copie pas : détaillé dans chaque fichier individuel.
 
 ## Écrans sans référence externe (patterns à nous)
 
