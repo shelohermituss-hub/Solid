@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { ScreenState } from "@/components/ScreenState"
 import { cn } from "@/lib/utils"
 import { formatHTG } from "@/lib/format"
@@ -17,13 +19,13 @@ export default async function IstorikPage({ searchParams }: IstorikPageProps) {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
-        <Link
-          href="/pwofil"
-          aria-label="Tounen"
-          className="flex h-[52px] w-[52px] items-center justify-center text-ink"
+        <Button
+          render={<Link href="/pwofil" aria-label="Tounen" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
         >
           <ChevronLeft className="size-6" aria-hidden="true" />
-        </Link>
+        </Button>
         <h1 className="flex-1 text-center font-display text-body font-bold text-ink">
           Istorik
         </h1>
@@ -51,7 +53,7 @@ export default async function IstorikPage({ searchParams }: IstorikPageProps) {
               <p className="mb-2 text-micro font-bold uppercase tracking-[0.08em] text-ink-soft">
                 {group.monthLabel}
               </p>
-              <div className="rounded-(--radius-card) border border-line bg-card px-(--spacing-stack) shadow-card">
+              <Card className="gap-0 px-(--spacing-stack) py-0">
                 {group.transactions.map((tx, index) => (
                   <div
                     key={tx.reference}
@@ -81,7 +83,7 @@ export default async function IstorikPage({ searchParams }: IstorikPageProps) {
                     </p>
                   </div>
                 ))}
-              </div>
+              </Card>
             </div>
           ))}
 
