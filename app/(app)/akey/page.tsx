@@ -2,6 +2,8 @@ import Link from "next/link"
 import { Bell } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { ScreenState } from "@/components/ScreenState"
 import { formatHTG } from "@/lib/format"
 import { mockAkey } from "@/lib/mock/akey"
@@ -23,13 +25,13 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
             {userName}
           </p>
         </div>
-        <Link
-          href="/notifikasyon"
-          aria-label="Notifikasyon"
-          className="flex size-[52px] items-center justify-center rounded-full text-ink"
+        <Button
+          render={<Link href="/notifikasyon" aria-label="Notifikasyon" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
         >
           <Bell className="size-6" aria-hidden="true" />
-        </Link>
+        </Button>
       </div>
 
       {state === "error" ? (
@@ -74,60 +76,60 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
               anvan {nextKotizasyon.dueDate} — nan {nextKotizasyon.daysLeft}{" "}
               jou
             </p>
-            <Link
-              href="/peye"
-              className="mt-4 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-soley font-body text-body font-semibold text-soley-ink"
+            <Button
+              render={<Link href="/peye" />}
+              className="mt-4 h-[52px] w-full rounded-(--radius-btn) bg-soley font-body text-body font-semibold text-soley-ink shadow-none hover:bg-soley/90"
             >
               Kotize kounye a
-            </Link>
+            </Button>
           </div>
 
-          <Link
-            href="/gwoup"
-            className="block rounded-(--radius-card) border border-line bg-card p-(--spacing-stack) shadow-card"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-body font-bold text-ink">{group.name}</p>
-                <p className="text-micro text-ink-soft">
-                  {group.memberCount} manm · pot {formatHTG(group.potAmount)}{" "}
-                  HTG
-                </p>
-              </div>
-              <span className="text-body text-ink-soft" aria-hidden="true">
-                ›
-              </span>
-            </div>
-            <div className="mt-3 flex items-center justify-between">
-              <p className="text-micro text-ink-soft">
-                Tou pa w :{" "}
-                <span className="font-bold text-ink">
-                  pozisyon {group.yourPosition} · {group.monthLabel}
+          <Link href="/gwoup" className="block">
+            <Card className="p-(--spacing-stack)">
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-body font-bold text-ink">{group.name}</p>
+                  <p className="text-micro text-ink-soft">
+                    {group.memberCount} manm · pot{" "}
+                    {formatHTG(group.potAmount)} HTG
+                  </p>
+                </div>
+                <span className="text-body text-ink-soft" aria-hidden="true">
+                  ›
                 </span>
-              </p>
-              <Badge
-                variant="outline"
-                className="rounded-(--radius-chip) border-transparent bg-paid-bg px-3 text-micro font-semibold text-paid"
-              >
-                {group.paidCount}/{group.totalCount} peye
-              </Badge>
-            </div>
+              </div>
+              <div className="mt-3 flex items-center justify-between">
+                <p className="text-micro text-ink-soft">
+                  Tou pa w :{" "}
+                  <span className="font-bold text-ink">
+                    pozisyon {group.yourPosition} · {group.monthLabel}
+                  </span>
+                </p>
+                <Badge
+                  variant="outline"
+                  className="rounded-(--radius-chip) border-transparent bg-paid-bg px-3 text-micro font-semibold text-paid"
+                >
+                  {group.paidCount}/{group.totalCount} peye
+                </Badge>
+              </div>
+            </Card>
           </Link>
 
-          <div className="rounded-(--radius-card) border border-dashed border-line bg-card p-(--spacing-stack) text-center shadow-card">
+          <Card className="border-dashed p-(--spacing-stack) text-center">
             <p className="text-body font-bold text-ink">
               Ou vle yon lòt sòl ?
             </p>
             <p className="mt-1 text-micro text-ink-soft">
               Kreye youn oswa mande yon envitasyon
             </p>
-            <Link
-              href="/kreye-gwoup"
-              className="mt-3 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) border border-line bg-card font-body text-body font-semibold text-ink"
+            <Button
+              render={<Link href="/kreye-gwoup" />}
+              variant="outline"
+              className="mt-3 h-[52px] w-full rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
             >
               + Kreye yon sòl
-            </Link>
-          </div>
+            </Button>
+          </Card>
         </div>
       )}
     </div>
