@@ -1,7 +1,10 @@
 import Link from "next/link"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { ScreenState } from "@/components/ScreenState"
 import { Wonn } from "@/components/Wonn"
 import { cn } from "@/lib/utils"
@@ -34,13 +37,13 @@ export default async function GwoupPage({ searchParams }: GwoupPageProps) {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
-        <Link
-          href="/akey"
-          aria-label="Tounen"
-          className="flex h-[52px] w-[52px] items-center justify-center text-ink"
+        <Button
+          render={<Link href="/akey" aria-label="Tounen" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
         >
           <ChevronLeft className="size-6" aria-hidden="true" />
-        </Link>
+        </Button>
         <h1 className="flex-1 text-center font-display text-body font-bold text-ink">
           {name}
         </h1>
@@ -93,18 +96,19 @@ export default async function GwoupPage({ searchParams }: GwoupPageProps) {
             </Badge>
           </div>
 
-          <Link
-            href="/chemen-sik"
-            className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center gap-2 rounded-(--radius-btn) border border-line bg-card font-body text-body font-semibold text-ink"
+          <Button
+            render={<Link href="/chemen-sik" />}
+            variant="outline"
+            className="mt-(--spacing-stack) h-[52px] w-full gap-2 rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
           >
             Gade chemen sik la
             <ChevronRight className="size-4" aria-hidden="true" />
-          </Link>
+          </Button>
 
           <p className="mt-(--spacing-stack) text-micro font-bold uppercase tracking-[0.08em] text-ink-soft">
             Manm yo — {monthShort}
           </p>
-          <div className="rounded-(--radius-card) border border-line bg-card shadow-card">
+          <Card className="gap-0 py-0">
             {featuredMembers.map((member, index) => (
               <div
                 key={member.position}
@@ -114,9 +118,11 @@ export default async function GwoupPage({ searchParams }: GwoupPageProps) {
                 )}
               >
                 <div className="flex items-center gap-3">
-                  <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-micro font-bold text-primary-foreground">
-                    {member.initials}
-                  </span>
+                  <Avatar className="size-9">
+                    <AvatarFallback className="bg-primary text-micro font-bold text-primary-foreground">
+                      {member.initials}
+                    </AvatarFallback>
+                  </Avatar>
                   <div>
                     <p className="text-body font-bold text-ink">
                       {member.name}
@@ -146,7 +152,7 @@ export default async function GwoupPage({ searchParams }: GwoupPageProps) {
                 />
               </div>
             ))}
-          </div>
+          </Card>
           <p className="mt-(--spacing-stack) mb-(--spacing-stack) text-center text-micro text-ink-soft">
             + {otherMembersCount} lòt manm
           </p>
