@@ -1,0 +1,167 @@
+"use client"
+
+import * as React from "react"
+import { Check, Loader2 } from "lucide-react"
+
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+import { formatHTG } from "@/lib/format"
+
+type PaymentState = "confirm" | "processing" | "success" | "error"
+
+type PayButtonProps = {
+  solName: string
+  cycle: { current: number; total: number }
+  amount: number
+  /**
+   * Force un résultat pour la QA/preview (mock uniquement — pas de logique
+   * de paiement réelle tant que le skill moncash-flow n'est pas intégré).
+   * Ex: /peye?mock=error
+   */
+  forcedOutcome?: "success" | "error"
+}
+
+/**
+ * Simule la confirmation MonCash. Remplacer par le flow réel
+ * (webhook + vérification API MonCash) en suivant le skill moncash-flow
+ * avant tout passage en production — jamais de webhook seul comme source
+ * de vérité.
+ */
+function simulateMonCashPayment(
+  forcedOutcome?: "success" | "error"
+): Promise<"success" | "error"> {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      if (forcedOutcome) {
+        resolve(forcedOutcome)
+        return
+      }
+      resolve(Math.random() < 0.85 ? "success" : "error")
+    }, 900)
+  })
+}
+
+export function PayButton({
+  solName,
+  cycle,
+  amount,
+  forcedOutcome,
+}: PayButtonProps) {
+  const [open, setOpen] = React.useState(false)
+  const [state, setState] = React.useState<PaymentState>("confirm")
+
+  function handleOpenChange(next: boolean) {
+    setOpen(next)
+    if (!next) {
+      window.setTimeout(() => setState("confirm"), 200)
+    }
+  }
+
+  async function handleConfirm() {
+    setState("processing")
+    const outcome = await simulateMonCashPayment(forcedOutcome)
+    setState(outcome)
+  }
+
+  return (
+    <Drawer open={open} onOpenChange={handleOpenChange}>
+      <DrawerTrigger className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep">
+        Peye ak MonCash
+      </DrawerTrigger>
+      <DrawerContent>
+        {state === "confirm" && (
+          <>
+            <DrawerHeader>
+              <DrawerTitle>Konfime peman an</DrawerTitle>
+              <DrawerDescription>
+                {solName} · mwa {cycle.current}/{cycle.total}
+              </DrawerDescription>
+            </DrawerHeader>
+            <div className="px-(--spacing-screen-x) py-(--spacing-stack)">
+              <p className="text-center font-display text-amount font-extrabold text-ink">
+                {formatHTG(amount)}
+                <span className="ml-1 font-body text-small font-normal text-ink-soft">
+                  HTG
+                </span>
+              </p>
+            </div>
+            <DrawerFooter>
+              <button
+                onClick={handleConfirm}
+                className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep"
+              >
+                Konfime peman an
+              </button>
+              <DrawerClose className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) font-body text-body font-semibold text-ink-soft">
+                Anile
+              </DrawerClose>
+            </DrawerFooter>
+          </>
+        )}
+
+        {state === "processing" && (
+          <div className="flex flex-col items-center gap-(--spacing-stack) px-(--spacing-screen-x) py-10">
+            <Loader2
+              className="size-8 animate-spin text-primary"
+              aria-hidden="true"
+            />
+            <p className="text-center text-body text-ink-soft">
+              N ap konekte ak MonCash…
+            </p>
+          </div>
+        )}
+
+        {state === "success" && (
+          <>
+            <div className="flex flex-col items-center gap-3 px-(--spacing-screen-x) pt-6">
+              <span className="flex size-12 items-center justify-center rounded-full bg-paid-bg">
+                <Check className="size-6 text-paid" aria-hidden="true" />
+              </span>
+              <p className="text-center font-display text-h2 font-bold text-ink">
+                Kotizasyon w antre !
+              </p>
+              <p className="text-center text-body text-ink-soft">
+                Mèsi — peman {formatHTG(amount)} HTG konfime pou {solName}.
+              </p>
+            </div>
+            <DrawerFooter>
+              <DrawerClose className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep">
+                Tounen akèy
+              </DrawerClose>
+            </DrawerFooter>
+          </>
+        )}
+
+        {state === "error" && (
+          <>
+            <DrawerHeader>
+              <DrawerTitle>Peman an pa pase</DrawerTitle>
+              <DrawerDescription>
+                Tcheke balans MonCash ou, epi eseye ankò.
+              </DrawerDescription>
+            </DrawerHeader>
+            <DrawerFooter>
+              <button
+                onClick={handleConfirm}
+                className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground active:bg-primary-deep"
+              >
+                Eseye ankò
+              </button>
+              <DrawerClose className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) font-body text-body font-semibold text-ink-soft">
+                Anile
+              </DrawerClose>
+            </DrawerFooter>
+          </>
+        )}
+      </DrawerContent>
+    </Drawer>
+  )
+}
