@@ -25,7 +25,7 @@ export default async function PeyePage({ searchParams }: PeyePageProps) {
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
         <Link
-          href="/"
+          href="/akey"
           aria-label="Tounen"
           className="flex h-[52px] w-[52px] items-center justify-center text-ink"
         >

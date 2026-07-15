@@ -121,13 +121,12 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
             <p className="mt-1 text-micro text-ink-soft">
               Kreye youn oswa mande yon envitasyon
             </p>
-            {/* TODO: lier à l'écran 10 (Kreye gwoup) quand il sera codé */}
-            <button
-              type="button"
+            <Link
+              href="/kreye-gwoup"
               className="mt-3 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) border border-line bg-card font-body text-body font-semibold text-ink"
             >
               + Kreye yon sòl
-            </button>
+            </Link>
           </div>
         </div>
       )}
