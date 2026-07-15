@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(DESIGN.md)",
+      "Edit(CLAUDE.md)",
+      "Edit(maquette/**)",
+      "Edit(references/**)"
+    ]
+  }
+}
