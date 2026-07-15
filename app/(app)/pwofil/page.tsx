@@ -1,4 +1,4 @@
-import { ChevronRight, Flame, Medal, Target } from "lucide-react"
+import { ChevronRight, Flame, Medal, Settings, Target } from "lucide-react"
 import Link from "next/link"
 
 import { Badge } from "@/components/ui/badge"
@@ -23,9 +23,17 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
-        <h1 className="w-full text-center font-display text-body font-bold text-ink">
+        <div className="size-[52px]" aria-hidden="true" />
+        <h1 className="flex-1 text-center font-display text-body font-bold text-ink">
           Pwofil ou
         </h1>
+        <Button
+          render={<Link href="/paramet" aria-label="Paramèt" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
+        >
+          <Settings className="size-5" aria-hidden="true" />
+        </Button>
       </div>
 
       {state === "error" ? (
