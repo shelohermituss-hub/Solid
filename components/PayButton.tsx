@@ -4,6 +4,7 @@ import * as React from "react"
 import { useRouter } from "next/navigation"
 import { Loader2 } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
 import {
   Drawer,
   DrawerClose,
@@ -82,8 +83,10 @@ export function PayButton({
 
   return (
     <Drawer open={open} onOpenChange={handleOpenChange}>
-      <DrawerTrigger className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep">
-        Peye ak MonCash
+      <DrawerTrigger asChild>
+        <Button className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold">
+          Peye ak MonCash
+        </Button>
       </DrawerTrigger>
       <DrawerContent>
         {state === "confirm" && (
@@ -103,14 +106,19 @@ export function PayButton({
               </p>
             </div>
             <DrawerFooter>
-              <button
+              <Button
                 onClick={handleConfirm}
-                className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
+                className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
               >
                 Konfime peman an
-              </button>
-              <DrawerClose className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) font-body text-body font-semibold text-ink-soft">
-                Anile
+              </Button>
+              <DrawerClose asChild>
+                <Button
+                  variant="ghost"
+                  className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold text-ink-soft"
+                >
+                  Anile
+                </Button>
               </DrawerClose>
             </DrawerFooter>
           </>
@@ -137,14 +145,19 @@ export function PayButton({
               </DrawerDescription>
             </DrawerHeader>
             <DrawerFooter>
-              <button
+              <Button
                 onClick={handleConfirm}
-                className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
+                className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
               >
                 Eseye ankò
-              </button>
-              <DrawerClose className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) font-body text-body font-semibold text-ink-soft">
-                Anile
+              </Button>
+              <DrawerClose asChild>
+                <Button
+                  variant="ghost"
+                  className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold text-ink-soft"
+                >
+                  Anile
+                </Button>
               </DrawerClose>
             </DrawerFooter>
           </>

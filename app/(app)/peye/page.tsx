@@ -1,7 +1,10 @@
 import Link from "next/link"
 import { ChevronLeft } from "lucide-react"
 
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { PayButton } from "@/components/PayButton"
 import { formatHTG } from "@/lib/format"
 import { mockKotizasyon } from "@/lib/mock/peye"
@@ -24,13 +27,13 @@ export default async function PeyePage({ searchParams }: PeyePageProps) {
   return (
     <div className="flex min-h-dvh flex-col bg-background">
       <div className="flex h-[52px] items-center px-(--spacing-screen-x)">
-        <Link
-          href="/akey"
-          aria-label="Tounen"
-          className="flex h-[52px] w-[52px] items-center justify-center text-ink"
+        <Button
+          render={<Link href="/akey" aria-label="Tounen" />}
+          variant="ghost"
+          className="size-[52px] rounded-full p-0 text-ink"
         >
           <ChevronLeft className="size-6" aria-hidden="true" />
-        </Link>
+        </Button>
         <h1 className="flex-1 text-center font-display text-body font-bold text-ink">
           Kotize
         </h1>
@@ -54,10 +57,12 @@ export default async function PeyePage({ searchParams }: PeyePageProps) {
         </p>
 
         {moncashConnected ? (
-          <div className="mt-(--spacing-stack) flex items-center gap-3 rounded-(--radius-card) border border-line bg-card p-4 shadow-card">
-            <div className="flex size-11 items-center justify-center rounded-(--radius-input) bg-ink text-body font-bold text-paper">
-              MC
-            </div>
+          <Card className="mt-(--spacing-stack) flex-row items-center gap-3 p-4">
+            <Avatar className="size-11 rounded-(--radius-input)">
+              <AvatarFallback className="rounded-(--radius-input) bg-ink text-body font-bold text-paper">
+                MC
+              </AvatarFallback>
+            </Avatar>
             <div className="flex-1">
               <p className="text-body font-semibold text-ink">MonCash</p>
               <p className="text-micro text-ink-soft">{moncash.phone}</p>
@@ -68,16 +73,16 @@ export default async function PeyePage({ searchParams }: PeyePageProps) {
             >
               konekte
             </Badge>
-          </div>
+          </Card>
         ) : (
-          <div className="mt-(--spacing-stack) rounded-(--radius-card) border border-line bg-card p-4 text-center shadow-card">
+          <Card className="mt-(--spacing-stack) p-4 text-center">
             <p className="text-body font-semibold text-ink">
               MonCash pa konekte
             </p>
             <p className="mt-1 text-body text-ink-soft">
               Konekte kont MonCash ou anvan ou peye kotizasyon w.
             </p>
-          </div>
+          </Card>
         )}
 
         <div className="mt-[18px]">
@@ -89,9 +94,9 @@ export default async function PeyePage({ searchParams }: PeyePageProps) {
               forcedOutcome={forcedOutcome}
             />
           ) : (
-            <button className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep">
+            <Button className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold">
               Konekte MonCash
-            </button>
+            </Button>
           )}
         </div>
 
