@@ -159,6 +159,24 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
             Istorik tranzaksyon yo
             <ChevronRight className="size-4" aria-hidden="true" />
           </Button>
+
+          <Button
+            render={<Link href="/faq" />}
+            variant="outline"
+            className="mt-2.5 h-[52px] w-full gap-1.5 rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
+          >
+            Èd ak kesyon frekan
+            <ChevronRight className="size-4" aria-hidden="true" />
+          </Button>
+
+          <Button
+            render={<Link href="/rapote-pwoblem" />}
+            variant="outline"
+            className="mt-2.5 mb-(--spacing-stack) h-[52px] w-full gap-1.5 rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
+          >
+            Rapòte yon pwoblèm
+            <ChevronRight className="size-4" aria-hidden="true" />
+          </Button>
         </div>
       )}
     </div>

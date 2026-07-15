@@ -90,6 +90,14 @@ export default async function IstorikPage({ searchParams }: IstorikPageProps) {
           <p className="text-center text-micro text-ink-soft">
             Chak liy gen referans MonCash li — se prèv ou.
           </p>
+
+          <Button
+            render={<Link href="/rapote-pwoblem" />}
+            variant="outline"
+            className="mt-(--spacing-stack) mb-(--spacing-stack) h-[52px] w-full rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
+          >
+            Rapòte yon pwoblèm
+          </Button>
         </div>
       )}
     </div>
