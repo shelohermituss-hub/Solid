@@ -89,14 +89,18 @@ export default async function PwofilPage({ searchParams }: PwofilPageProps) {
           </div>
 
           <div className="mt-(--spacing-stack) grid grid-cols-3 gap-2">
-            <Card className="rounded-(--radius-input) py-3 text-center">
+            <Button
+              render={<Link href="/sik-fini" />}
+              variant="ghost"
+              className="h-auto flex-col gap-0 rounded-(--radius-input) border border-line bg-card py-3 text-center shadow-card"
+            >
               <p className="font-display text-h1 font-extrabold text-ink">
                 {stats.cyclesCompleted}
               </p>
               <p className="text-micro font-semibold uppercase tracking-wide text-ink-soft">
                 Sik konplete
               </p>
-            </Card>
+            </Button>
             <Card className="rounded-(--radius-input) py-3 text-center">
               <p className="font-display text-h1 font-extrabold text-ink">
                 {stats.onTimePayments}
