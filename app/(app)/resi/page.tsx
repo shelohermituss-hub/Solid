@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Check } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
 import { ScreenState } from "@/components/ScreenState"
 import { formatHTG } from "@/lib/format"
 import { mockResi } from "@/lib/mock/resi"
@@ -53,7 +55,7 @@ export default async function ResiPage({ searchParams }: ResiPageProps) {
       </div>
 
       <div className="flex-1 px-(--spacing-screen-x) py-(--spacing-stack)">
-        <div className="rounded-(--radius-card) border border-dashed border-line bg-card p-(--spacing-stack) shadow-card">
+        <Card className="border-dashed p-(--spacing-stack)">
           <div className="flex justify-between border-b border-dashed border-line py-2 text-body">
             <span className="text-ink-soft">Montan</span>
             <span className="font-bold text-ink">{formatHTG(amount)} HTG</span>
@@ -74,20 +76,21 @@ export default async function ResiPage({ searchParams }: ResiPageProps) {
             <span className="text-ink-soft">Estati</span>
             <span className="font-bold text-paid">Konfime ✓</span>
           </div>
-        </div>
+        </Card>
 
-        <button
+        <Button
           type="button"
-          className="mt-(--spacing-stack) flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
+          className="mt-(--spacing-stack) h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
         >
           Pataje resi a
-        </button>
-        <Link
-          href="/akey"
-          className="mt-2.5 flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) border border-line bg-card font-body text-body font-semibold text-ink"
+        </Button>
+        <Button
+          render={<Link href="/akey" />}
+          variant="outline"
+          className="mt-2.5 h-[52px] w-full rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink"
         >
           Tounen akèy
-        </Link>
+        </Button>
       </div>
     </div>
   )
