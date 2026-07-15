@@ -65,7 +65,7 @@ export function EnskriForm() {
     setStatus("checking")
     const outcome = await simulateOtpCheck(forceError)
     if (outcome === "success") {
-      router.push("/idantite")
+      router.push("/konsantman")
       return
     }
     setStatus("error")
