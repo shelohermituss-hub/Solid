@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme {
+  /* ===== Couleurs — Sòlid (DESIGN.md §2, LOI visuelle) ===== */
+  --color-ink: #23303F;          /* texte principal (adwaz) */
+  --color-ink-soft: #5D6B7A;     /* texte secondaire */
+  --color-paper: #FAF8F4;        /* fond d'app (papier chaud) */
+  --color-card: #FFFFFF;         /* surfaces */
+  --color-line: #E8E3D9;         /* bordures, séparateurs */
+
+  --color-primary: #2B4BD8;      /* indigo — L'ACTION */
+  --color-primary-deep: #1E36A0; /* état pressé */
+  --color-soley: #F5B840;        /* jaune solèy — CÉLÉBRATION & POT */
+  --color-soley-ink: #3A2A05;    /* texte sur solèy */
+
+  --color-paid: #1E9E6A;         /* vert — payé / confirmé */
+  --color-wait: #E89B2E;         /* ambre — en attente */
+  --color-late: #E0533D;         /* rouge — retard / erreur */
+
+  /* Fonds pâles des statuts (chips, alertes) */
+  --color-paid-bg: #E3F4EC;
+  --color-wait-bg: #FBEFD9;
+  --color-late-bg: #FBE4DF;
+  --color-primary-bg: #EEF2FE;
+  --color-soley-bg: #FEF7E6;
+
+  /* ===== Typographie ===== */
+  --font-display: "Bricolage Grotesque", sans-serif;  /* titres, montants */
+  --font-body: "Public Sans", sans-serif;             /* tout le reste */
+
+  --text-amount-xl: 3.6rem;   /* montant de paiement (écran Peye) */
+  --text-amount: 2.2rem;      /* montant sur carte d'accueil */
+  --text-h1: 1.5rem;
+  --text-h2: 1.15rem;
+  --text-body: 0.95rem;
+  --text-small: 0.8rem;
+  --text-micro: 0.68rem;      /* labels, eyebrows */
+
+  /* ===== Rayons ===== */
+  --radius-card: 18px;
+  --radius-btn: 16px;
+  --radius-input: 14px;
+  --radius-chip: 99px;
+
+  /* ===== Espacement ===== */
+  --spacing-screen-x: 22px;   /* marge horizontale de chaque écran */
+  --spacing-stack: 12px;      /* entre cartes empilées */
+
+  /* ===== Tactile ===== */
+  --size-touch-min: 52px;     /* hauteur minimum de TOUT élément cliquable */
+
+  /* ===== Alias sémantiques shadcn/ui (mapping vers les tokens ci-dessus) =====
+     Ces variables sont celles que les composants shadcn (button, card, input,
+     badge, avatar, tabs, dialog) consomment nativement. Aucune couleur hors
+     tokens DESIGN.md n'est introduite ici — uniquement des références. */
+  --color-background: var(--color-paper);
+  --color-foreground: var(--color-ink);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary-foreground: #FFFFFF;
+  --color-secondary: var(--color-primary-bg);
+  --color-secondary-foreground: var(--color-primary);
+  --color-muted: var(--color-line);
+  --color-muted-foreground: var(--color-ink-soft);
+  --color-accent: var(--color-soley-bg);
+  --color-accent-foreground: var(--color-soley-ink);
+  --color-destructive: var(--color-late);
+  --color-destructive-foreground: #FFFFFF;
+  --color-border: var(--color-line);
+  --color-input: var(--color-line);
+  --color-ring: var(--color-primary);
+
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --font-mono: var(--font-body);
+
+  --radius-sm: var(--radius-input);
+  --radius-md: var(--radius-input);
+  --radius-lg: var(--radius-card);
+  --radius-xl: var(--radius-card);
+  --radius-2xl: var(--radius-card);
+}
+
+/* Pas de dark mode en phase MVP (DESIGN.md §8, interdit 7). */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
