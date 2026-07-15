@@ -3,28 +3,29 @@
 @import "shadcn/tailwind.css";
 
 @theme {
-  /* ===== Couleurs — Sòlid (DESIGN.md §2, LOI visuelle) ===== */
-  --color-ink: #23303F;          /* texte principal (adwaz) */
-  --color-ink-soft: #5D6B7A;     /* texte secondaire */
-  --color-paper: #FAF8F4;        /* fond d'app (papier chaud) */
+  /* ===== Couleurs — Sòlid v2 (DESIGN.md §2, LOI visuelle — système Cash App) ===== */
+  --color-ink: #000000;          /* texte principal — noir plein */
+  --color-ink-soft: #6B6B6B;     /* texte secondaire */
+  --color-paper: #F5F5F5;        /* fond d'app — gris neutre (canvas) */
   --color-card: #FFFFFF;         /* surfaces */
-  --color-line: #E8E3D9;         /* bordures, séparateurs */
+  --color-line: #E8E8E8;         /* bordures, séparateurs */
+  --color-placeholder: #B2B2B2;  /* placeholder, désactivé */
 
-  --color-primary: #2B4BD8;      /* indigo — L'ACTION */
-  --color-primary-deep: #1E36A0; /* état pressé */
-  --color-soley: #F5B840;        /* jaune solèy — CÉLÉBRATION & POT */
-  --color-soley-ink: #3A2A05;    /* texte sur solèy */
+  --color-primary: #000000;      /* noir — L'ACTION */
+  --color-primary-deep: #1A1A1A; /* état pressé / variante sombre décorative */
+  --color-soley: #00C244;        /* vert — CÉLÉBRATION & POT (jamais un bouton) */
+  --color-soley-ink: #FFFFFF;    /* texte/icône sur solèy */
 
-  --color-paid: #1E9E6A;         /* vert — payé / confirmé */
+  --color-paid: #00C244;         /* même vert que solèy — argent confirmé */
   --color-wait: #E89B2E;         /* ambre — en attente */
   --color-late: #E0533D;         /* rouge — retard / erreur */
 
   /* Fonds pâles des statuts (chips, alertes) */
-  --color-paid-bg: #E3F4EC;
+  --color-paid-bg: #E7F9ED;
   --color-wait-bg: #FBEFD9;
   --color-late-bg: #FBE4DF;
-  --color-primary-bg: #EEF2FE;
-  --color-soley-bg: #FEF7E6;
+  --color-primary-bg: #F0F0F0;
+  --color-soley-bg: #E7F9ED;
 
   /* Identité avatar — décoratif uniquement, jamais un statut (DESIGN.md §3) */
   --color-avatar-1: #4F6B8C; /* bleu ardoise */
@@ -37,6 +38,7 @@
   /* ===== Typographie ===== */
   --font-display: "Bricolage Grotesque", sans-serif;  /* titres, montants */
   --font-body: "Public Sans", sans-serif;             /* tout le reste */
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace; /* fine print */
 
   --text-amount-xl: 3.6rem;   /* montant de paiement (écran Peye) */
   --text-amount: 2.2rem;      /* montant sur carte d'accueil */
@@ -46,16 +48,16 @@
   --text-small: 0.8rem;
   --text-micro: 0.68rem;      /* labels, eyebrows */
 
-  /* ===== Rayons ===== */
-  --radius-card: 18px;
-  --radius-btn: 16px;
+  /* ===== Rayons — système Cash App (DESIGN.md v2) ===== */
+  --radius-card: 22px;        /* était 18px */
+  --radius-btn: 9999px;       /* était 16px — pilule pleine */
   --radius-input: 14px;
   --radius-chip: 99px;
 
-  /* ===== Élévation — remplace la règle "zéro ombre" (DESIGN.md §8, interdit 3) ===== */
-  --shadow-card: 0 1px 2px rgba(35,48,63,.04), 0 8px 20px -10px rgba(35,48,63,.10);
-  --shadow-cta: 0 4px 14px -4px rgba(43,75,216,.35);   /* sous le bouton primaire indigo */
-  --shadow-hero: 0 12px 32px -12px rgba(43,75,216,.28); /* sous la carte d'accueil bleue */
+  /* ===== Élévation — quasi supprimée (DESIGN.md §8, interdit 3) =====
+     shadow-cta et shadow-hero (v1) retirés : aucune ombre sous bouton ni
+     carte hero dans les références réelles étudiées. */
+  --shadow-card: 0 1px 2px rgba(0,0,0,.04);
 
   /* ===== Espacement ===== */
   --spacing-screen-x: 22px;   /* marge horizontale de chaque écran */
@@ -88,7 +90,6 @@
 
   --font-sans: var(--font-body);
   --font-heading: var(--font-display);
-  --font-mono: var(--font-body);
 
   --radius-sm: var(--radius-input);
   --radius-md: var(--radius-input);

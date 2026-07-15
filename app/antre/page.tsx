@@ -9,7 +9,7 @@ export default function AntrePage() {
 
   return (
     <div className="flex min-h-dvh flex-col justify-end bg-primary px-(--spacing-screen-x) pb-10">
-      <div className="mx-auto mt-16 flex size-[230px] items-center justify-center rounded-full border border-primary bg-primary-deep">
+      <div className="mx-auto mt-16 flex size-[230px] items-center justify-center rounded-full border border-white/10 bg-primary-deep">
         <div className="flex flex-col items-center gap-1 text-center">
           <p className="font-display text-h1 font-extrabold tracking-[-0.02em] text-primary-foreground">
             {formatHTG(heroPotAmount)}
@@ -39,7 +39,7 @@ export default function AntrePage() {
       <Button
         render={<Link href="/enskri" />}
         variant="ghost"
-        className="mt-6 h-[52px] w-full rounded-(--radius-btn) bg-soley font-body text-body font-semibold text-soley-ink hover:bg-soley/90"
+        className="mt-6 h-[52px] w-full rounded-(--radius-btn) bg-card font-body text-body font-semibold text-ink hover:bg-card/90"
       >
         Kòmanse
       </Button>

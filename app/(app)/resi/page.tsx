@@ -70,7 +70,7 @@ export default async function ResiPage({ searchParams }: ResiPageProps) {
           </div>
           <div className="flex justify-between border-b border-dashed border-line py-2 text-body">
             <span className="text-ink-soft">Referans MonCash</span>
-            <span className="font-bold text-ink">{reference}</span>
+            <span className="font-mono text-small font-semibold text-ink">{reference}</span>
           </div>
           <div className="flex justify-between py-2 text-body">
             <span className="text-ink-soft">Estati</span>

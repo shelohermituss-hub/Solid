@@ -50,11 +50,11 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
         />
       ) : (
         <div className="mt-(--spacing-stack) flex flex-col gap-(--spacing-stack) px-(--spacing-screen-x)">
-          <div className="rounded-(--radius-card) bg-primary p-(--spacing-stack) shadow-hero">
+          <div className="rounded-(--radius-card) border border-line bg-card p-(--spacing-stack) shadow-card">
             <div className="flex items-center justify-between">
               <Badge
                 variant="outline"
-                className="rounded-(--radius-chip) border-transparent bg-primary-foreground/15 px-3 text-micro font-semibold uppercase tracking-wide text-primary-foreground"
+                className="rounded-(--radius-chip) border-transparent bg-primary-bg px-3 text-micro font-semibold uppercase tracking-wide text-ink-soft"
               >
                 {group.name} · Mwa {group.cycle.current}/{group.cycle.total}
               </Badge>
@@ -63,22 +63,22 @@ export default async function AkeyPage({ searchParams }: AkeyPageProps) {
                 className="size-2 rounded-full bg-paid ring-4 ring-paid/30"
               />
             </div>
-            <p className="mt-4 text-micro font-bold uppercase tracking-[0.08em] text-primary-foreground/70">
+            <p className="mt-4 text-micro font-bold uppercase tracking-[0.08em] text-ink-soft">
               Pwochen kotizasyon ou
             </p>
-            <p className="mt-1 font-display text-amount font-extrabold tracking-[-0.03em] text-primary-foreground">
+            <p className="mt-1 font-display text-amount font-extrabold tracking-[-0.03em] text-ink">
               {formatHTG(nextKotizasyon.amount)}
-              <span className="ml-2 text-body font-normal text-primary-foreground/70">
+              <span className="ml-2 text-body font-normal text-ink-soft">
                 HTG
               </span>
             </p>
-            <p className="mt-0.5 text-micro text-primary-foreground/70">
+            <p className="mt-0.5 text-micro text-ink-soft">
               anvan {nextKotizasyon.dueDate} — nan {nextKotizasyon.daysLeft}{" "}
               jou
             </p>
             <Button
               render={<Link href="/peye" />}
-              className="mt-4 h-[52px] w-full rounded-(--radius-btn) bg-soley font-body text-body font-semibold text-soley-ink shadow-none hover:bg-soley/90"
+              className="mt-4 h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
             >
               Kotize kounye a
             </Button>
