@@ -6,21 +6,22 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { Input } from "@/components/ui/input"
 
 const OTP_LENGTH = 4
-const MOCK_CORRECT_CODE = "4720"
 const MOCK_PHONE = "+509 37 12 45 88"
 
 /**
  * Valide le code SMS. Mock uniquement — l'inscription réelle (envoi/
  * vérification OTP côté MonCash ou opérateur) reste à brancher plus tard,
  * hors périmètre de cette tâche (données mock, pas de Supabase).
+ *
+ * Aucun vrai SMS n'est envoyé en phase mock : n'importe quel code à 4
+ * chiffres est accepté, pour ne pas bloquer l'utilisateur sur un code
+ * qu'il ne peut pas deviner. L'état d'erreur reste testable via
+ * /enskri?mock=error.
  */
-function simulateOtpCheck(
-  code: string,
-  forceError: boolean
-): Promise<"success" | "error"> {
+function simulateOtpCheck(forceError: boolean): Promise<"success" | "error"> {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(!forceError && code === MOCK_CORRECT_CODE ? "success" : "error")
+      resolve(forceError ? "error" : "success")
     }, 600)
   })
 }
@@ -61,7 +62,7 @@ export function EnskriForm() {
 
   async function handleSubmit() {
     setStatus("checking")
-    const outcome = await simulateOtpCheck(code, forceError)
+    const outcome = await simulateOtpCheck(forceError)
     if (outcome === "success") {
       router.push("/idantite")
       return
