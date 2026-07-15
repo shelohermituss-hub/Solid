@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation"
 import { toast } from "sonner"
 import { TriangleAlert } from "lucide-react"
 
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
   Select,
@@ -142,40 +144,44 @@ export function KreyeGwoupForm() {
             placeholder="Nimewo oswa non"
             className="h-[52px] flex-1 rounded-(--radius-input) border-line bg-card px-4 text-body"
           />
-          <button
+          <Button
             type="button"
             onClick={handleAddMember}
             aria-label="Ajoute manm"
-            className="flex h-[52px] w-[52px] items-center justify-center rounded-(--radius-input) bg-primary text-body font-bold text-primary-foreground"
+            className="h-[52px] w-[52px] rounded-(--radius-input) p-0 text-body font-bold"
           >
             +
-          </button>
+          </Button>
         </div>
       </div>
 
       <div className="flex flex-wrap gap-2">
         {members.map((member) => (
-          <span
+          <Badge
             key={member}
-            className="rounded-(--radius-chip) bg-primary-bg px-3 py-1.5 text-micro font-semibold text-primary"
+            variant="outline"
+            className="rounded-(--radius-chip) border-transparent bg-primary-bg px-3 py-1.5 text-micro font-semibold text-primary"
           >
             {member} ✓
-          </span>
+          </Badge>
         ))}
         {remainingToInvite > 0 && (
-          <span className="rounded-(--radius-chip) bg-line px-3 py-1.5 text-micro font-semibold text-ink-soft">
+          <Badge
+            variant="outline"
+            className="rounded-(--radius-chip) border-transparent bg-line px-3 py-1.5 text-micro font-semibold text-ink-soft"
+          >
             + {remainingToInvite} pou envite
-          </span>
+          </Badge>
         )}
       </div>
 
-      <button
+      <Button
         type="button"
         onClick={handleSendInvitations}
-        className="flex h-[52px] w-full items-center justify-center rounded-(--radius-btn) bg-primary font-body text-body font-semibold text-primary-foreground shadow-cta active:bg-primary-deep"
+        className="h-[52px] w-full rounded-(--radius-btn) font-body text-body font-semibold"
       >
         Voye envitasyon yo
-      </button>
+      </Button>
     </div>
   )
 }
