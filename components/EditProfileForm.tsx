@@ -53,7 +53,7 @@ export function EditProfileForm({ initialName, initials }: EditProfileFormProps)
           type="button"
           variant="ghost"
           onClick={handlePhotoClick}
-          className="h-9 gap-1.5 rounded-(--radius-chip) px-3 text-body font-semibold text-primary"
+          className="h-[52px] gap-1.5 rounded-(--radius-chip) px-4 text-body font-semibold text-primary"
         >
           <Camera className="size-4" aria-hidden="true" />
           {photoChosen ? "Foto chwazi ✓" : "Chanje foto"}

@@ -147,7 +147,7 @@ export default async function GwoupApFomePage({
                   <Button
                     render={<Link href="/ranplase-manm" />}
                     variant="outline"
-                    className="h-9 shrink-0 rounded-(--radius-chip) bg-card px-3 text-micro font-semibold text-ink"
+                    className="h-[52px] shrink-0 rounded-(--radius-chip) bg-card px-4 text-micro font-semibold text-ink"
                   >
                     Ranplase
                   </Button>
