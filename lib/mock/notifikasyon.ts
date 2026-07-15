@@ -1,4 +1,9 @@
-export type NotificationAccent = "soley" | "paid" | "primary" | "neutral"
+export type NotificationAccent =
+  | "soley"
+  | "paid"
+  | "primary"
+  | "neutral"
+  | "late"
 
 export type NotificationItem = {
   id: string
@@ -7,6 +12,7 @@ export type NotificationItem = {
   celebration?: boolean
   description: string
   timestamp: string
+  href?: string
 }
 
 export const mockNotifikasyon = {
@@ -39,6 +45,23 @@ export const mockNotifikasyon = {
       title: "Idantite w verifye",
       description: "Ou ka resevwa pot ou san pwoblèm kounye a",
       timestamp: "2 jiyè · 11:05",
+    },
+    {
+      id: "level-up",
+      accent: "primary",
+      title: "Ou monte nivo !",
+      celebration: true,
+      description: "Ou se kounye a Nivo Djanm — gade sa ki chanje",
+      timestamp: "28 jen · 09:12",
+      href: "/monte-nivo",
+    },
+    {
+      id: "late-warning",
+      accent: "late",
+      title: "Ou an reta pou kotizasyon w",
+      description: "Sòl Fanmi an · 5 000 HTG · 3 jou reta",
+      timestamp: "8 out · 07:30",
+      href: "/avetisman-reta",
     },
   ] satisfies NotificationItem[],
 }

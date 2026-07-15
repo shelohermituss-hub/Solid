@@ -1,5 +1,11 @@
 import Link from "next/link"
-import { BadgeCheck, ChevronLeft, CircleCheck, Clock } from "lucide-react"
+import {
+  BadgeCheck,
+  ChevronLeft,
+  CircleCheck,
+  Clock,
+  TriangleAlert,
+} from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -19,6 +25,7 @@ const accentBorderClass: Record<NotificationAccent, string> = {
   paid: "border-l-paid",
   primary: "border-l-primary",
   neutral: "border-l-ink-soft",
+  late: "border-l-late",
 }
 
 const accentIcon: Record<NotificationAccent, typeof Clock | null> = {
@@ -26,6 +33,7 @@ const accentIcon: Record<NotificationAccent, typeof Clock | null> = {
   paid: CircleCheck,
   primary: null,
   neutral: BadgeCheck,
+  late: TriangleAlert,
 }
 
 const accentIconClass: Record<NotificationAccent, string> = {
@@ -33,6 +41,7 @@ const accentIconClass: Record<NotificationAccent, string> = {
   paid: "text-paid",
   primary: "text-primary",
   neutral: "text-ink-soft",
+  late: "text-late",
 }
 
 export default async function NotifikasyonPage({
@@ -75,14 +84,8 @@ export default async function NotifikasyonPage({
         <div className="flex flex-1 flex-col gap-(--spacing-stack) px-(--spacing-screen-x)">
           {items.map((item) => {
             const Icon = accentIcon[item.accent]
-            return (
-              <Card
-                key={item.id}
-                className={cn(
-                  "border-l-4 p-(--spacing-stack)",
-                  accentBorderClass[item.accent]
-                )}
-              >
+            const content = (
+              <>
                 <div className="flex items-start gap-2">
                   {item.celebration ? (
                     <span aria-hidden="true">🎉</span>
@@ -103,6 +106,19 @@ export default async function NotifikasyonPage({
                 <p className="mt-1.5 text-micro text-ink-soft">
                   {item.timestamp}
                 </p>
+              </>
+            )
+            const cardClassName = cn(
+              "border-l-4 p-(--spacing-stack)",
+              accentBorderClass[item.accent]
+            )
+            return item.href ? (
+              <Link key={item.id} href={item.href} className="block">
+                <Card className={cardClassName}>{content}</Card>
+              </Link>
+            ) : (
+              <Card key={item.id} className={cardClassName}>
+                {content}
               </Card>
             )
           })}
